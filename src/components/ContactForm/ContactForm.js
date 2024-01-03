@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import css from '../Style.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { contactsAdd } from '../../redux/contactSlice';
-
+import { contactsAdd } from '../../redux/contacts/contactSlice';
+import { filterContacts } from '../../redux/contacts/selectors';
 import shortid from 'shortid';
 
 export default function OldContactForm() {
-  const { contacts } = useSelector(state => state.contacts);
+  const contacts = useSelector(filterContacts);
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
